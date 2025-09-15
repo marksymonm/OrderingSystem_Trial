@@ -86,12 +86,8 @@ WSGI_APPLICATION = 'OrderingSystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'orderingsystem',
-        'USER': 'root',
-        'PASSWORD': '',  # It's okay if you're using no password for local testing
-        'HOST': '127.0.0.1',
-        'PORT': '3307',  # Changed from 3307 to 3306
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
