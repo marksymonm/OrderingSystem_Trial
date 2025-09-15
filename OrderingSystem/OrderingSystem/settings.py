@@ -84,16 +84,14 @@ WSGI_APPLICATION = 'OrderingSystem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'orderingsystem',
-        'USER': 'root',
-        'PASSWORD': '',  # It's okay if you're using no password for local testing
-        'HOST': '127.0.0.1',
-        'PORT': '3307',  # Changed from 3307 to 3306
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')  # Render automatically provides DATABASE_URL
+    )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
